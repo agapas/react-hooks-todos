@@ -2,7 +2,7 @@
 
 A single page application (SPA) to practice React Hooks by building a complete CRUD app.
 
-# Getting Started with Create React App
+### Additional info:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
