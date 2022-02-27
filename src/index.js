@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useContext, useReducer } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TodosContext from './context';
+import todosReducer from './reducer';
 
-export const UserContext = React.createContext();
+import TodoList from './components/TodoList';
 
-const username = "Aggie";
+import "./index.css";
+
+const App = () => {
+  const initialState = useContext(TodosContext);
+  const [state, dispatch] = useReducer(todosReducer, initialState);
+
+  return (
+    <TodosContext.Provider value={{ state, dispatch }}>
+      <TodoList />
+    </TodosContext.Provider>
+  )
+}
 
 ReactDOM.render(
-  <UserContext.Provider value={username}>
-    <React.StrictMode><App /></React.StrictMode>
-  </UserContext.Provider>,
+  <App />,
   document.getElementById('root')
 );
 
