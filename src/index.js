@@ -5,6 +5,7 @@ import TodosContext from './context';
 import todosReducer from './reducer';
 
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 import "./index.css";
 
@@ -14,7 +15,10 @@ const App = () => {
 
   return (
     <TodosContext.Provider value={{ state, dispatch }}>
-      <TodoList />
+      <div className="container p-2 md:p-8 lg:p-12 mx-auto max-w-lg text-center font-mono">
+        <TodoForm />
+        <TodoList />
+      </div>
     </TodosContext.Provider>
   )
 }
