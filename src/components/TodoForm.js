@@ -1,15 +1,29 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import TodosContext from '../context';
 
 export default function TodoForm() {
+  const lastActiveTodo = useRef({});
   const [todo, setTodo] = useState("");
-  const { dispatch } = useContext(TodosContext);
+  const { state: { activeTodo = {} }, dispatch } = useContext(TodosContext);
+
+  useEffect(() => {
+    if (lastActiveTodo.id !== activeTodo.id && activeTodo.text) {
+      setTodo(activeTodo.text);
+      lastActiveTodo.current = activeTodo;
+    }
+    if (lastActiveTodo.current.id && !activeTodo.id) {
+      setTodo("");
+    }
+  }, [activeTodo])
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch({ type: "ADD_ITEM", payload: todo });
+
+    const type = activeTodo.text ? "UPDATE_ITEM" : "ADD_ITEM";
+    dispatch({ type, payload: todo });
     setTodo("");
   };
+
   return (
     <form
       className="flex flex-col md:flex-row justify-center mx-1 md:mx-0 pt-8 md:pt-0 pb-4"
