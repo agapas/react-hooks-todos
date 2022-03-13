@@ -1,5 +1,6 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import reportWebVitals from './reportWebVitals';
 import TodosContext from './context';
 import todosReducer from './reducer';
@@ -9,9 +10,31 @@ import TodoForm from './components/TodoForm';
 
 import "./index.css";
 
+const useAPI = endpoint => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(endpoint);
+      setData(response.data);
+    };
+    getData();
+  }, [endpoint]);
+
+  return data;
+};
+
 const App = () => {
   const initialState = useContext(TodosContext);
   const [state, dispatch] = useReducer(todosReducer, initialState);
+  const savedTodos = useAPI("http://localhost:3000/todos");
+
+  useEffect(() => {
+    dispatch({
+      type: "GET_ITEMS",
+      payload: savedTodos,
+    });
+  }, [savedTodos]);
 
   return (
     <TodosContext.Provider value={{ state, dispatch }}>

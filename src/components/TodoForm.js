@@ -11,10 +11,11 @@ export default function TodoForm() {
       setTodo(activeTodo.text);
       lastActiveTodo.current = activeTodo;
     }
+    // reset todo when the active item is deleted
     if (lastActiveTodo.current.id && !activeTodo.id) {
       setTodo("");
     }
-  }, [activeTodo])
+  }, [activeTodo]);
 
   const handleSubmit = event => {
     event.preventDefault();

@@ -2,6 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function reducer(state, action) {
   switch (action.type) {
+    case "GET_ITEMS": {
+      return { ...state, todos: action.payload };
+    }
     case "ADD_ITEM": {
       if (!action.payload || state.todos.some(t => t.text === action.payload)) { 
         return state;
