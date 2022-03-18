@@ -17,13 +17,21 @@ export default function TodoList() {
             ? "bg-green-600 border-green-700 line-through"
             : "bg-yellow-500 border-yellow-600";
 
-            const removeItem = async () => {
-              await axios({
-                method: "DELETE",
-                url: `http://localhost:3001/todos/${todo.id}`
-              });
-              dispatch({ type: "REMOVE_ITEM", payload: todo });
-            }
+          const toggleItem = async () => {
+            const response = await axios.patch(
+              `http://localhost:3001/todos/${todo.id}`,
+              { complete: !todo.complete }
+            );
+            dispatch({ type: "TOGGLE_ITEM", payload: response.data });
+          }
+
+          const removeItem = async () => {
+            await axios({
+              method: "DELETE",
+              url: `http://localhost:3001/todos/${todo.id}`
+            });
+            dispatch({ type: "REMOVE_ITEM", payload: todo });
+          }
   
           return (
           <li
@@ -31,7 +39,7 @@ export default function TodoList() {
             className="p-1 my-2 max-w-lg flex items-center text-green-700"
           >
             <span
-              onClick={() => dispatch({ type: "TOGGLE_ITEM", payload: todo })}
+              onClick={toggleItem}
               className={`flex-1 mr-3 cursor-pointer text-white ${complete} border rounded`}
             >{todo.text}</span>
             

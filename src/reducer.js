@@ -11,10 +11,8 @@ export default function reducer(state, action) {
       return { ...state, activeTodo: action.payload };
     case "TOGGLE_ITEM": {
       const todos = state.todos.map(t =>
-        t.id === action.payload.id
-          ? { ...action.payload, complete: !action.payload.complete }
-          : t
-        );
+        t.id === action.payload.id ? action.payload: t
+      );
       return { ...state, todos };
     }
     case "UPDATE_ITEM": {
