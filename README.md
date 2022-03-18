@@ -14,8 +14,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - go to project directory,
 - run `npm i` to install packages (just a first time),
-- run `npm run json:server` to be able save data locally into fake database,
-- run `npm start`, then select `Y` to view the app in the browser (it opens [http://localhost:3001](http://localhost:3001) automatically).
+- run `npm run server` to be able save data locally into fake database,
+- run `npm start` to view the app in the browser (it opens [http://localhost:3000](http://localhost:3000) automatically).
 
 ## Production build
 

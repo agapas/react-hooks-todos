@@ -27,7 +27,7 @@ const useAPI = endpoint => {
 const App = () => {
   const initialState = useContext(TodosContext);
   const [state, dispatch] = useReducer(todosReducer, initialState);
-  const savedTodos = useAPI("http://localhost:3000/todos");
+  const savedTodos = useAPI("http://localhost:3001/todos");
 
   useEffect(() => {
     dispatch({
