@@ -16,9 +16,8 @@ export default function reducer(state, action) {
       return { ...state, todos };
     }
     case "UPDATE_ITEM": {
-      const updatedTodo = { ...state.activeTodo, text: action.payload };
       const todos = state.todos.map(t =>
-        t.id === updatedTodo.id ? updatedTodo : t
+        t.id === action.payload.id ? action.payload : t
       );
       return { ...state, activeTodo: {}, todos };
     }

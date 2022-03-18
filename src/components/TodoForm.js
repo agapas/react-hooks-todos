@@ -23,7 +23,11 @@ export default function TodoForm() {
     event.preventDefault();
 
     if (activeTodo.text) {
-      dispatch({ type: "UPDATE_ITEM", payload: todo });
+      const response = await axios.patch(
+        `http://localhost:3001/todos/${activeTodo.id}`,
+        { text: todo }
+      );
+      dispatch({ type: "UPDATE_ITEM", payload: response.data });
       setTodo("");
     }
     else {
