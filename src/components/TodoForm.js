@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import TodosContext from '../context';
 
 export default function TodoForm() {
   const lastActiveTodo = useRef({});
   const [todo, setTodo] = useState("");
-  const { state: { activeTodo = {} }, dispatch } = useContext(TodosContext);
+  const { state: { activeTodo = {}, todos }, dispatch } = useContext(TodosContext);
 
   useEffect(() => {
     if (lastActiveTodo.id !== activeTodo.id && activeTodo.text) {
@@ -17,12 +19,30 @@ export default function TodoForm() {
     }
   }, [activeTodo]);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
-    const type = activeTodo.text ? "UPDATE_ITEM" : "ADD_ITEM";
-    dispatch({ type, payload: todo });
-    setTodo("");
+    if (activeTodo.text) {
+      dispatch({ type: "UPDATE_ITEM", payload: todo });
+      setTodo("");
+    }
+    else {
+      if (!todo || todos.some(t => t.text === todo)) { 
+        return;
+      }
+  
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3001/todos/",
+        data: {
+          id: uuidv4(),
+          text: todo,
+          complete: false,
+        }
+      });
+      dispatch({ type: "ADD_ITEM", payload: response.data });
+      setTodo("");
+    }
   };
 
   return (
