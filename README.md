@@ -2,11 +2,11 @@
 
 A single page application (SPA) written to practice React Hooks.
 
-<p align="middle">
-  <img src="https://raw.githubusercontent.com/agapas/react-hooks-todos/master/public/ui-example.jpg" width="800"/>
-</p>
-
 It's a complete CRUD app that has state managed with react context and reducer, connected to it's own API to save changes and made entirely with functional components and react hooks.
+
+<p align="middle">
+  <img src="https://github.com/agapas/react-hooks-todos/blob/main/public/ui-example.jpg?raw=true" width="600"/>
+</p>
 
 ### More details:
 
