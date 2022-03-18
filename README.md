@@ -2,6 +2,10 @@
 
 A single page application (SPA) to practice React Hooks by building a complete CRUD app.
 
+Reading and saving data locally with [json-server](https://github.com/typicode/json-server), and using [JSON Placeholder](http://jsonplaceholder.typicode.com/) for [demo page](https://my-json-server.typicode.com/agapas/react-hooks-todos/).
+
+Styles made with [tailwind css](https://tailwindcss.com/), [hero icons](https://heroicons.com/) and [hero patterns](https://heropatterns.com/).
+
 ### Additional info:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -10,10 +14,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run json:server`
+
+Runs json-server in the development mode for [http://localhost:3000](http://localhost:3000) to be able save data locally into fake database.
+
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+**Note:** If the json-server is already running, you will get the warning: "Would you like to run the app on another port instead?". Select "Y" and this will automatically open the [http://localhost:3001](http://localhost:3001) in the browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
