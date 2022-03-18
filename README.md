@@ -1,14 +1,18 @@
 # react-hooks-todos
 
-A single page application (SPA) to practice React Hooks by building a complete CRUD app.
+A single page application (SPA) written to practice React Hooks.
 
-Reading and saving data locally with [json-server](https://github.com/typicode/json-server), and using [JSON Placeholder](http://jsonplaceholder.typicode.com/) for [demo page](https://my-json-server.typicode.com/agapas/react-hooks-todos/).
+<p align="middle">
+  <img src="https://raw.githubusercontent.com/agapas/react-hooks-todos/master/public/ui-example.jpg" width="800"/>
+</p>
 
-Styles made with [tailwind css](https://tailwindcss.com/), [hero icons](https://heroicons.com/) and [hero patterns](https://heropatterns.com/).
+It's a complete CRUD app that has state managed with react context and reducer, connected to it's own API to save changes and made entirely with functional components and react hooks.
 
-### Additional info:
+### More details:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- reading and saving data locally with [json-server](https://github.com/typicode/json-server), and using [JSON Placeholder](http://jsonplaceholder.typicode.com/) for [demo page](https://my-json-server.typicode.com/agapas/react-hooks-todos/)
+- styles made with [tailwind css](https://tailwindcss.com/), [hero icons](https://heroicons.com/) and [hero patterns](https://heropatterns.com/)
+- the app was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
 ## Running the project
 
