@@ -10,9 +10,9 @@ It's a complete CRUD app that has state managed with react context and reducer, 
 
 ### More details:
 
-- reading and saving data locally with [json-server](https://github.com/typicode/json-server), and using [JSON Placeholder](http://jsonplaceholder.typicode.com/) to test [API](https://my-json-server.typicode.com/agapas/react-hooks-todos/)
-- styles made with [tailwind css](https://tailwindcss.com/), [hero icons](https://heroicons.com/) and [hero patterns](https://heropatterns.com/)
-- the app was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+- reading and saving data locally with [json-server](https://github.com/typicode/json-server),
+- styles made with [tailwind css](https://tailwindcss.com/), [hero icons](https://heroicons.com/) and [hero patterns](https://heropatterns.com/),
+- the app was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Running the project
 

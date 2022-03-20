@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import { BASE_URL } from '..';
 import TodosContext from '../context';
 
 export default function TodoForm() {
@@ -24,7 +25,7 @@ export default function TodoForm() {
 
     if (activeTodo.text) {
       const response = await axios.patch(
-        `http://localhost:3001/todos/${activeTodo.id}`,
+        `${BASE_URL}/${activeTodo.id}`,
         { text: todo }
       );
       dispatch({ type: "UPDATE_ITEM", payload: response.data });
@@ -37,7 +38,7 @@ export default function TodoForm() {
   
       const response = await axios({
         method: "POST",
-        url: "http://localhost:3001/todos/",
+        url: BASE_URL,
         data: {
           id: uuidv4(),
           text: todo,

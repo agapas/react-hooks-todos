@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '..';
 import TodosContext from '../context';
 
 export default function TodoList() {
@@ -17,9 +18,11 @@ export default function TodoList() {
             ? "bg-green-600 border-green-700 line-through"
             : "bg-yellow-500 border-yellow-600";
 
+          const todoUrl = `${BASE_URL}/${todo.id}`;
+
           const toggleItem = async () => {
             const response = await axios.patch(
-              `http://localhost:3001/todos/${todo.id}`,
+              todoUrl,
               { complete: !todo.complete }
             );
             dispatch({ type: "TOGGLE_ITEM", payload: response.data });
@@ -28,7 +31,7 @@ export default function TodoList() {
           const removeItem = async () => {
             await axios({
               method: "DELETE",
-              url: `http://localhost:3001/todos/${todo.id}`
+              url: todoUrl
             });
             dispatch({ type: "REMOVE_ITEM", payload: todo });
           }

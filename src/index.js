@@ -10,6 +10,8 @@ import TodoForm from './components/TodoForm';
 
 import "./index.css";
 
+export const BASE_URL = "http://localhost:3001/todos";
+
 const useAPI = endpoint => {
   const [data, setData] = useState([]);
 
@@ -27,7 +29,7 @@ const useAPI = endpoint => {
 const App = () => {
   const initialState = useContext(TodosContext);
   const [state, dispatch] = useReducer(todosReducer, initialState);
-  const savedTodos = useAPI("http://localhost:3001/todos");
+  const savedTodos = useAPI(BASE_URL);
 
   useEffect(() => {
     dispatch({
